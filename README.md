@@ -2,7 +2,11 @@
 
 NMEA (National Marine Electronics Association) 0183 is a standard for parsing sensor data for many marine electronics like echo sounders, sonars, anemometers, gyrocompasses, autopilots and GPS receivers.
 
-Example data looks like this:
+Example GPS data looks like this:
+
+```bash
+cat /dev/ttyACM0
+```
 
 ```
 $GPGGA,092750.000,5321.6802,N,00630.3372,W,1,8,1.03,61.7,M,55.2,M,,*76
