@@ -23,7 +23,7 @@ $GPGSV,3,3,11,29,09,301,24,16,09,020,,36,,,*76
 $GPRMC,092751.000,A,5321.6802,N,00630.3371,W,0.06,31.66,280511,,,A*45
 ```
 
-Every line start with a dollar sign. The next 2 characters is the "talker", followed by 3 characters for the "type" of record. It is followed by a CSV and then a "*" followed by a checksum.
+Every line starts with a dollar sign. The next 2 characters is the "talker", followed by 3 characters for the "type" of record. It is followed by a CSV and then a "*" followed by a checksum.
 
 Tested with a [ublox series 6 GPS receiver](https://www.u-blox.com/en/product/neo-6-series).
 
