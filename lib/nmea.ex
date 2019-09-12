@@ -21,8 +21,7 @@ defmodule NMEA do
 
     case valid?(talker <> type <> data, checksum) do
       true ->
-        "," <> without_comma = data
-        values = String.split(without_comma, ",")
+        [_ | values] = String.split(data, ",")
 
         {:ok, {talker, type, values}}
 
