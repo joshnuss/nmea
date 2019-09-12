@@ -1,6 +1,5 @@
-defmodule Nmea do
+defmodule NMEA do
   @moduledoc """
-  Documentation for Nmea.
   """
 
   @doc """
@@ -8,7 +7,7 @@ defmodule Nmea do
 
   ## Examples
 
-      iex> Nmea.hello()
+      iex> NMEA.hello()
       :world
 
   """

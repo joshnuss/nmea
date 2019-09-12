@@ -1,4 +1,4 @@
-defmodule Nmea.MixProject do
+defmodule NMEA.MixProject do
   use Mix.Project
 
   def project do

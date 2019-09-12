@@ -1,8 +1,8 @@
-defmodule NmeaTest do
+defmodule NMEATest do
   use ExUnit.Case
-  doctest Nmea
+  doctest NMEA
 
   test "greets the world" do
-    assert Nmea.hello() == :world
+    assert NMEA.hello() == :world
   end
 end
