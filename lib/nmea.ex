@@ -1,17 +1,47 @@
 defmodule NMEA do
   @moduledoc """
+  Parser for NMEA 0183 Version 2.3.
+  NMEA 0183 is a combined electrical and data specification for communication between marine electronics such as echo sounder, sonars, anemometer, gyrocompass, autopilot, GPS receivers and many other types of instruments
+  More information on [Wikipedia](https://en.wikipedia.org/wiki/NMEA_0183)
   """
 
+  use Bitwise
+
   @doc """
-  Hello world.
+  Parse a datagram.
 
   ## Examples
 
-      iex> NMEA.hello()
-      :world
+      iex> NMEA.parse("$GPRMC,,V,,,,,,,,,,N*53")
+      {:ok, {"GP", "RMC", ["", "V", "", "", "", "", "", "", "", "", "", "N"]}}
 
   """
-  def hello do
-    :world
+  def parse("$" <> <<talker::binary-size(2)>> <> <<type::binary-size(3)>> <> rest) do
+    [data, checksum] = String.split(rest, "*")
+
+    case valid?(talker <> type <> data, checksum) do
+      true ->
+        "," <> without_comma = data
+        values = String.split(without_comma, ",")
+
+        {:ok, {talker, type, values}}
+
+      _ ->
+        {:error, :checksum}
+    end
   end
+
+  def parse(_), do: {:error, :invalid}
+
+  defp valid?(text, checksum) do
+    expected =
+      text
+      |> String.to_charlist()
+      |> Enum.reduce(0, fn char, sum -> bxor(sum, char) end)
+      |> to_hex()
+
+    expected == checksum
+  end
+
+  defp to_hex(n), do: Integer.to_string(n, 16)
 end
