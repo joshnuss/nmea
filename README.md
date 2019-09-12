@@ -1,6 +1,6 @@
 # NMEA
 
-NMEA (National Marine Electronics Association) 0183 is a standard for parsing sensor data for many marine electronics like echo sounders, sonars, anemometers, gyrocompasses, autopilots and GPS receivers.
+[NMEA (National Marine Electronics Association) 0183](https://en.wikipedia.org/wiki/NMEA_0183) is a standard for parsing sensor data for many marine electronics like echo sounders, sonars, anemometers, gyrocompasses, autopilots and GPS receivers.
 
 Example GPS data looks like this:
 
