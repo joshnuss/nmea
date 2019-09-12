@@ -36,7 +36,7 @@ defmodule NMEA do
     expected =
       text
       |> String.to_charlist()
-      |> Enum.reduce(0, fn char, sum -> bxor(sum, char) end)
+      |> Enum.reduce(0, &bxor/2)
       |> to_hex()
 
     expected == checksum
