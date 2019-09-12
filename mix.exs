@@ -7,7 +7,13 @@ defmodule NMEA.MixProject do
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: "Parser for sensor data",
+      package: [
+        maintainers: ["Joshua Nussbaum"],
+        licenses: ["MIT"],
+        links: %{github: "https://github.com/joshnuss/nmea"}
+      ]
     ]
   end
 
