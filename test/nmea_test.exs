@@ -37,4 +37,9 @@ defmodule NMEATest do
                  "23"
                ]}}
   end
+
+  test "with zero padded checksum" do
+    assert NMEA.parse("$IIMWV,332.8,R,15.5,M,A*05") ==
+             {:ok, {"II", "MWV", ["332.8", "R", "15.5", "M", "A"]}}
+  end
 end
