@@ -5,7 +5,7 @@ defmodule NMEA do
   More information on [Wikipedia](https://en.wikipedia.org/wiki/NMEA_0183)
   """
 
-  use Bitwise
+  import Bitwise, only: [bxor: 2]
 
   @doc """
   Parse a datagram.
@@ -37,10 +37,7 @@ defmodule NMEA do
       text
       |> String.to_charlist()
       |> Enum.reduce(0, &bxor/2)
-      |> to_hex()
 
-    expected == checksum
+    expected == String.to_integer(checksum, 16)
   end
-
-  defp to_hex(n), do: Integer.to_string(n, 16)
 end
